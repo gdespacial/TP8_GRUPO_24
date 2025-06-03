@@ -1,0 +1,29 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Entidades;
+using Datos;
+using System.Data;
+
+namespace GestionSucursales
+{
+    public class NegocioSucursales
+    {
+       
+        public DataTable getTabla()
+        {
+            DaoSucursales dao = new DaoSucursales(); 
+            return dao.getTablaSucursales();
+        }
+
+        public DataTable getTablaFiltrada(int idSucursal)
+        {
+            DaoSucursales dao = new DaoSucursales();
+            return dao.getTablaSucursalesFiltrada(idSucursal);
+        }
+
+
+    }
+}
