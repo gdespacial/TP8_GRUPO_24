@@ -11,7 +11,9 @@ namespace Datos
 {
     class AccesoDatos
     {
-        string cadenaConexion = @"Data Source=MOSTRADOR-PC\SQLEXPRESS;Initial Catalog=BDSucursales;Integrated Security=True";
+        //        @"Data Source=DESKTOP-9AUAVE3\SQLEXPRESS;Initial Catalog=BDSucursales;Integrated Security=True";
+        //          @"Data Source=MOSTRADOR-PC\SQLEXPRESS;Initial Catalog=BDSucursales;Integrated Security=True"
+        string cadenaConexion = @"Data Source=DESKTOP-9AUAVE3\SQLEXPRESS;Initial Catalog=BDSucursales;Integrated Security=True";
         public AccesoDatos() { }
 
         private SqlConnection obtenerConexion()
@@ -70,6 +72,24 @@ namespace Datos
             }
 
         }
-     
+
+        public Boolean EjecutarConsulta(SqlCommand Comando, String consulta)
+        {
+            int FilasCambiadas;
+            SqlConnection Conexion = obtenerConexion();
+            SqlCommand cmd = new SqlCommand();
+            cmd = Comando;
+            cmd.Connection = Conexion;
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = consulta;
+            FilasCambiadas = cmd.ExecuteNonQuery();
+            Conexion.Close();
+            if( FilasCambiadas > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
     }
 }

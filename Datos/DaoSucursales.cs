@@ -12,6 +12,18 @@ namespace Datos
    public class DaoSucursales
     {
         AccesoDatos ds = new AccesoDatos();
+        Sucursal sucursal = new Sucursal();
+
+
+        public void ParametrosAgregar(SqlCommand sqlCommand, Sucursal sucursal) // Agregado.
+        {
+            SqlParameter sqlParameter = new SqlParameter();
+            sqlCommand.Parameters.Add("@nombreSucursal", SqlDbType.NVarChar, 100).Value = sucursal.NombreSucursal;
+            sqlCommand.Parameters.Add("@descripcionSucursal", SqlDbType.NVarChar, 100).Value = sucursal.DescripcionSucursal;
+            sqlCommand.Parameters.Add("@id_ProvinciaSucursal", SqlDbType.Int).Value = sucursal.Id_ProvinciaSucursal;
+            sqlCommand.Parameters.Add("@direccionSucursal", SqlDbType.NVarChar, 100).Value = sucursal.DireccionSucursal;
+        }
+
 
         public DataTable getTablaSucursales()
         {
@@ -27,6 +39,25 @@ namespace Datos
             comando.Parameters.AddWithValue("@Id_Sucursal", idSucursal);
             DataTable sucursalesFiltradas = ds.obtenerSucursalesFiltradas(comando);
             return sucursalesFiltradas;
+        }
+
+        public DataTable obtenerProvincias()
+        {
+            string consultaSql = "select * FROM Provincia";
+            DataTable tabla = ds.ObtenerTabla("Provincias", consultaSql);
+            return tabla;
+
+        }
+
+        public Boolean agregarSucursal(Sucursal sucursal)
+        {
+            Boolean resultado;
+            SqlCommand sqlcommand = new SqlCommand();
+            ParametrosAgregar(sqlcommand, sucursal);
+
+            string consultaSql = "insert into Sucursal(NombreSucursal, DescripcionSucursal, Id_ProvinciaSucursal, DireccionSucursal) VALUES(@nombreSucursal, @descripcionSucursal, @id_ProvinciaSucursal, @direccionSucursal)";
+            resultado = ds.EjecutarConsulta(sqlcommand, consultaSql);
+            return resultado;
         }
     }
 }

@@ -24,6 +24,19 @@ namespace GestionSucursales
             return dao.getTablaSucursalesFiltrada(idSucursal);
         }
 
+        public DataTable obtenerProvincias()
+        {
+            DaoSucursales dao = new DaoSucursales();
+
+            return  dao.obtenerProvincias();
+        }
+        public Boolean agregarSucursal(string nombre, string descripcion, int provincia, string direccion)
+        {
+            DaoSucursales dao = new DaoSucursales();
+            Sucursal sucursal = new Sucursal(nombre, descripcion, provincia, direccion);
+
+            return dao.agregarSucursal(sucursal);
+        }
 
     }
 }
