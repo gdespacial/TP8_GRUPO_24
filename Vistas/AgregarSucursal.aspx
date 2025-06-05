@@ -33,7 +33,7 @@
             <asp:TextBox ID="txtDireccionSucursal" runat="server"></asp:TextBox>
             <asp:RequiredFieldValidator ID="rfvDireccionSucursal" runat="server" ControlToValidate="txtDireccionSucursal" ErrorMessage="Ingrese una Direccion" ForeColor="Red"></asp:RequiredFieldValidator>
         </div>
-        <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" />
+        <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" OnClick="btnAceptar_Click" />
         <br />
         <br />
         <asp:HyperLink ID="hlAgregarSucursal" runat="server" NavigateUrl="~/AgregarSucursal.aspx">Agregar Sucursal</asp:HyperLink>
