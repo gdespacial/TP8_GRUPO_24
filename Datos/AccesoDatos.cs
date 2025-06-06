@@ -12,8 +12,8 @@ namespace Datos
     class AccesoDatos
     {
         //        @"Data Source=DESKTOP-9AUAVE3\SQLEXPRESS;Initial Catalog=BDSucursales;Integrated Security=True";
-        //          @"Data Source=MOSTRADOR-PC\SQLEXPRESS;Initial Catalog=BDSucursales;Integrated Security=True"
-        string cadenaConexion = @"Data Source=DESKTOP-9AUAVE3\SQLEXPRESS;Initial Catalog=BDSucursales;Integrated Security=True";
+        //          @"Data Source=MOSTRADOR-PC\SQLEXPRESS;Initial Catalog=BDSucursales;Integrated Security=True";
+        string cadenaConexion = @"Data Source=MOSTRADOR-PC\SQLEXPRESS;Initial Catalog=BDSucursales;Integrated Security=True";
         public AccesoDatos() { }
 
         private SqlConnection obtenerConexion()

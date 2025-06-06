@@ -23,6 +23,10 @@ namespace Entidades
             _NombreSucursal = NombreSucursal;
         }
 
+        public Sucursal(int idSucursal)
+        {
+            _idSucursal = idSucursal;
+        }
         public Sucursal(int idSucursal, string NombreSucursal, string DescripcionSucursal, string DireccionSucursal)
         {
             _idSucursal = idSucursal;

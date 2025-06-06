@@ -38,5 +38,12 @@ namespace GestionSucursales
             return dao.agregarSucursal(sucursal);
         }
 
+        public Boolean eliminarSucursal(int idSucursal)
+        {
+            DaoSucursales dao = new DaoSucursales();
+            Sucursal sucursal = new Sucursal(idSucursal);
+            return dao.eliminarSucursal(sucursal);
+        }
+
     }
 }

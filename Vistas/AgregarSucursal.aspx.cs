@@ -33,13 +33,22 @@ namespace Vistas
             if (!resultado)
             {
                 lblMensaje.Text = "Error al agregar Sucursal";
+                limpiarCampos();
             }
             else
             {
                 lblMensaje.Text = "Sucursal agregada";
+                limpiarCampos();
             }
            
             
+        }
+        public void limpiarCampos()
+        {
+            txtNombreSucursal.Text = "";
+            txtDireccionSucursal.Text = "";
+            txtDescripcionSucursal.Text = "";
+            ddlProvinciaSucursal.SelectedIndex = 0;
         }
     }
 }
