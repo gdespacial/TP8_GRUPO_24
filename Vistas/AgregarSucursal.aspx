@@ -25,8 +25,8 @@
             <br />
             <br />
             Provincia:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:DropDownList ID="ddlProvinciaSucursal" runat="server">
-            </asp:DropDownList>
+            <asp:DropDownList ID="ddlProvinciaSucursal" runat="server"></asp:DropDownList>
+            <asp:RequiredFieldValidator ID="rfvProvinciaSucursal" runat="server" ControlToValidate="ddlProvinciaSucursal" ErrorMessage="Ingrese una provincia" ForeColor="Red"></asp:RequiredFieldValidator>
             <br />
             <br />
             Direccion:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
