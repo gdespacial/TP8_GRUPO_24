@@ -59,5 +59,16 @@ namespace Datos
             resultado = ds.EjecutarConsulta(sqlcommand, consultaSql);
             return resultado;
         }
+
+        public Boolean eliminarSucursal(Sucursal sucursal)
+        {
+            Boolean resultado;
+            SqlCommand sqlCommand = new SqlCommand();
+            //  ParametrosAgregar(sqlCommand, sucursal);
+            sqlCommand.Parameters.AddWithValue("@Id_Sucursal", sucursal.idSucursal);
+            string consultaSQL = "Delete From Sucursal Where Id_Sucursal = @Id_Sucursal";
+            resultado = ds.EjecutarConsulta(sqlCommand, consultaSQL);
+            return resultado;
+        }
     }
 }

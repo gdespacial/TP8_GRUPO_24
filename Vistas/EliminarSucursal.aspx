@@ -12,7 +12,7 @@
         <div>
             Ingresar Id de la Sucursal:&nbsp;
             <asp:TextBox ID="txtEliminarSucursal" runat="server"></asp:TextBox>
-            <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" />
+            <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" />
             <asp:RequiredFieldValidator ID="rfvEliminarSucursales" runat="server" ControlToValidate="txtEliminarSucursal" ErrorMessage="Ingrese un ID" ForeColor="Red"></asp:RequiredFieldValidator>
         </div>
         <p>
